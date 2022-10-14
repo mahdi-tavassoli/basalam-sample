@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="style-p2.css">
+  <title>دانلود اپ | باسلام</title>
+</head>
+
+<body class="">
+  <div class="position-fixed top-0 right-0 toast-wrapper " id="salam"
+    style="z-index: 9999; padding-top: 15px; padding-right: 10px;">
+    <div id="liveToast" class="toast hide animate__animated animate__fadeInUp" role="alert" aria-live="assertive"
+      aria-atomic="true" style="background-color: rgb(163,46,62);">
+      <div class="toast-body d-flex justify-content-between align-items-center my-2" style="height: auto;">
+        <span id="content-toast" class="text-white  animate__animated animate__fadeInRight">Hello, world! This is a
+          toast message.</span>
+        <button type="button" class="btn-close" id="close-button"></button>
+      </div>
+    </div>
+  </div>
+  <div class="header">
+    <header id="header-Desktop">
+      <div class="header-desktop">
+        <div class="d-flex align-items-center container">
+          <a href="index.html" class="desktop-header__logo">
+            <img class="w-100" src="image/basalam-logotype.34a414e.svg" alt="باسلام">
+          </a>
+          <div class="header-search-container">
+            <div class="header-search-wrapper">
+              <div id="header-search" class="header-search ">
+                <form action="/search" class="header-search-form">
+                  <div class="header-search-loading-wrapper">
+                    <div class="header-search-btn">
+                      <button type="submit">
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <input id="search-input" type="text" placeholder="جستجو در بازار" name="input-value"
+                    autocomplete="off">
+                </form>
+                <div id="search-suggestion" style="display: none;">
+                  <div id="suggestions" class="search-suggestion-sheet">
+                    <ul class="search-suggestion-list"></ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div id="header-search-darkness" class="" onclick="removeDark()"></div>
+          </div>
+          <div class="d-flex align-items-center">
+            <div class="header-desktop-link header-desktop__link position-relative text-center">
+              <a href="https://basalam.com/accounts" class="header-desktop-a">
+                <div class="icon text-center">
+                  <i class="bi bi-person"></i>
+                </div>
+                <div class="title">ورود / ثبت‌نام</div>
+              </a>
+            </div>
+            <a class="header-desktop-link header-desktop__link header-desktop-link--cart header-desktop-a"
+              href="https://basalam.com/cart">
+              <div class="icon">
+                <i class="bi bi-bag"></i>
+              </div>
+              <div class="title">سبد خرید</div>
+            </a>
+
+          </div>
+        </div>
+      </div>
+      <div class="mega-menu">
+        <div class="container">
+          <nav class="megamenu--container">
+            <div class="megamenu--item" onmouseover="openMegaMenu()">
+              <div class="megamenu--link">
+                <i class="ml-2 bi bi-list" style="font-size: 16px;"></i>
+                <span>دسته‌بندی‌ها</span>
+
+              </div>
+
+            </div>
+            <div class="megamenu--item">
+              <a href="log-in.html">
+                <div class="megamenu--link">
+                  <span>نصب اپ</span>
+                </div>
+              </a>
+            </div>
+            <div class="megamenu--item">
+              <a href="/landing/create-vendor">
+                <div class="megamenu--link">
+                  <span>غرفه‌دار شو</span>
+                </div>
+              </a>
+            </div>
+
+          </nav>
+          <div class="header-mega-menu mega-menu2 animate__animated animate__fadeInUp" id="megaMenu"
+            style="display: none;" onmouseleave="closeMegaMenu(id)">
+            <div class="header-sub-menu-inner">
+              <div class="mega-menu-category">
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'food')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/food-stuffs-1.svg" alt="food">
+                      <span>مواد غذایی</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'fashion')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/fashion-2.svg" alt="fashion">
+                      <span>مد و پوشاک</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'kitchen')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/home-3.svg" alt="home">
+                      <span>خانه و آشپزخانه</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'handicrafts')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/handicrafts-4.svg" alt="handicrafts">
+                      <span>صنایع دستی</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'cure')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/cure-5.svg" alt="cure">
+                      <span>سلامت، درمان و طب</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'make-up')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/make-up-6.svg" alt="make-up">
+                      <span>آرایشی و بهداشتی</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'intertainment')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/intertainment-7.svg" alt="intertainment">
+                      <span>فرهنگی، آموزشی و سرگرمی</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'sport-and-travel')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/sport-and-travel-8.svg" alt="sport-and-travel">
+                      <span>ورزش و سفر</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'business-services')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/business-services-9.svg" alt="business-services">
+                      <span>خدمات کسب و کار</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'digital-products')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/digital-products.svg" alt="digital-products">
+                      <span>کالای دیجیتال</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+                <div class="mega-menu-category-item" onmouseover="openCategory(event, 'tools-and-cars')">
+                  <a href="">
+                    <div>
+                      <img src="image/main-contant/category/tools-and-cars-10.svg" alt="tools-and-cars">
+                      <span>ابزارآلات و تجهیزات خودرو</span>
+                    </div>
+                    <i class="bi bi-chevron-left"></i>
+                  </a>
+                </div>
+
+
+              </div>
+              <div class="mega-menu-body">
+                <div class="mega-menu-body-item " id="food">
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">
+                        خوار و بار
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        برنج
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        حبوبات و سویا
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        روغن‌های خوراکی
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        قند و شکر
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        ماکارونی، پاستا و رشته
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        غلات
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        نان
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        آرد
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        سویق و پودر جوانه
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">
+                        آجیل و خشکبار
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        آجیل
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        خرما
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        پسته
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        گردو
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        تخمه
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        میوه خشک
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        بادام درختی
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        بادام زمینی
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        بادام هندی
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        فندق
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">
+                        کشمش ، نخودچی و مویز
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">
+                        شیرینی و تنقلات
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        ترشک و لواشک
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        شکلات و آبنبات
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        کلوچه و نان شیرینی
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        سوهان
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        گز
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">
+                        نبات
+                      </a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">شیرینی</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">کیک</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">تنقلات</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">دسر</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">حلوا</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">ادویه و چاشنی</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">زعفران</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">زرشک</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">ادویه</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">رب‌ها</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">آبلیمو</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">آبغوره</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">سرکه</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">سس</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">خلال‌ها</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">نشاسته</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">سبزی خشک</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">نوشیدنی‌</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">ابمیوه و شربت</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">چای</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">دمنوش</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">عرقیات</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">قهوه</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">محصولات کافئین‌دار</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">نوشیدنی انرژی‌زا</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">نوشابه و ماء الشعیر</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">آب معدنی</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">عسل و فرآورده‌های عسل</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">عسل</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">فرآورده‌های عسل</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">گرده گل</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">بره موم</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">برای صبحانه</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">ارده</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">شیره</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">کنجد</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">عسل</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">حلواارده و شکری</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">مربا</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">کره مغزها</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">ترشی و شور</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">ترشی</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">زیتون</a>
+                    </li>
+                    <li class="header-menu--list-item">
+                      <a href="">خیارشور و شور</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">محصولات پروتئینی</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">گوشت ابزیان</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">گوشت قرمز</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">گوشت مرغ و طیور</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">تخم مرغ</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">تخم سایر طیور</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">سوسیس و کالباس</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">همبرگر و کباب‌ لقمه</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">لبنیات</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">پنیر</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">کره</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">کشک و قره قوروت</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">شیر</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">ماست</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">دوغ</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">خامه و سرشیر</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">میوه و صیفی تازه</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">صیفی تازه</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">میوه تازه</a>
+                    </li>
+                  </ul>
+                  <ul class="header-menu--list">
+                    <li class="header-menu--list-item header-menu--list-title">
+                      <a href="">آماده و نیمه‌آماده</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">آماده طبخ</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">طبخ شده</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">غذای کودک</a>
+                    </li>
+                    <li class="header-menu--list-item ">
+                      <a href="">کنسرو</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mega-menu-body-item " id="fashion">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Fashion & Trend</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="kitchen">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">Home &
+                        Kitchen</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="handicrafts">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Handicrafts</h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="cure">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Health and Treatment
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="make-up">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Make up
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="intertainment">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Intertainment
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="sport-and-travel">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Sport & Trip
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="business-services">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Business & Services
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="digital-products">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Digital Products
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <div class="mega-menu-body-item " id="tools-and-cars">
+                  <div class="w-100">
+                    <div class="d-flex justify-content-center align-items-center pt-5">
+                      <h1 class=" pt-5 fw-bolder animate__animated animate__bounce animate__infinite shadow-text">
+                        Tools & Cars
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <header id="header-Mobile">
+      <div class="header-mobile">
+        <div class="header-top-part">
+          <div class="header-top-logo">
+            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+              aria-controls="offcanvasWithBackdrop">
+              <i class="bi bi-list headerM-icon"></i>
+            </button>
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop"
+              aria-labelledby="offcanvasWithBackdropLabel">
+              <div class="offcanvas-header">
+                <a href="index.html" id="offcanvasWithBackdropLabel">
+                  <img src="image/basalam-logotype.34a414e.svg" alt="image">
+                </a>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                  aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body" style="padding-right: 0;">
+                <ul>
+                  <li class="nav-menu-item">
+                    <a href="">
+                      ورود / ثبت‌ نام
+                    </a>
+                  </li>
+                </ul>
+                <hr class="nav-menu--hr">
+                <ul>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/search?exist=1">
+                      <span>محصولات</span>
+                    </a>
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/search?q&sort=4&type=vendors">
+                      <span>غرفه‌ها</span>
+                    </a>
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/help">
+                      <span>سوالات متداول</span>
+                    </a>
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/blog/">
+                      <span>وبلاگ باسلام</span>
+                    </a>
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/guides/how-it-works">
+                      <span>باسلام چطور کار می‌کند؟</span>
+                    </a>
+                  </li>
+                  <li class="nav-menu-item">
+                    <a href="https://basalam.com/about/contact-us">
+                      <span>پشتیبانی</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <a href="index.html">
+              <img src="image/basalam-logotype.34a414e.svg" alt="باسلام">
+            </a>
+          </div>
+          <a href="/landing/create-vendor" class="headerM-icon">
+            <i class="bi bi-shop-window"></i>
+          </a>
+          <a href="/cart" class="headerM-icon headerM-icon-margin">
+            <i class="bi bi-basket2"></i>
+          </a>
+        </div>
+        <div class="header-bottom-part">
+          <div class="headerM-search-container">
+            <div class="header-search-wrapper">
+              <div id="header-search" class="header-search ">
+                <form action="/search" class="header-search-form">
+                  <div class="header-search-loading-wrapper">
+                    <div class="header-search-btn">
+                      <button type="submit">
+                        <i class="bi bi-search"></i>
+                      </button>
+                    </div>
+                  </div>
+                  <input id="search-input" type="text" placeholder="جستجو در بازار" name="input-value"
+                    autocomplete="off">
+                </form>
+                <div id="search-suggestion" style="display: none;">
+                  <div id="suggestions" class="search-suggestion-sheet">
+                    <ul class="search-suggestion-list"></ul>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+  </div>
+  <main>
+    <div class="bg-white position-relative">
+      <div class="row base">
+        <div class="col-12 col-md-12 col-xl-6" style="padding-right: 125px;">
+          <h1 class="text-center text-xl-start">دانلود اپلیکیشن باسلام</h1>
+          <p>
+            برای دریافت لینک دانلود مستقیم اپلیکیشن باسلام،
+            <br>
+            شماره موبایل خود را وارد کنید یا تصویر روبه‌رو را اسکن کنید.
+          </p>
+          <div class="app-form-wrapper">
+            <div class="me-3">
+              <div class="client-input">
+                <input type="text" class="input-number" id="input-number-1" tabindex="-2"
+                  placeholder="شماره موبایل خود را وارد کنید">
+                <button type="submit" id="btn-mobile-1" class="button-input btn-xl btn-input-fill">
+                  <span style="margin-left: 0.5rem; color: inherit; font-weight: 700; font-size: 0.875rem;">
+                    ارسال لینک دانلود
+                  </span>
+                </button>
+              </div>
+              <div class="d-flex pt-4 text-center ">
+                <a href="https://cafebazaar.ir/app/ir.basalam.app" class="me-2" target="_blank">
+                  <img src="image/main-content/app-download/cafe-bazar-black.755828a.png"
+                    alt="دانلود اپ باسلام از کافه بازار">
+                </a>
+                <a href="https://play.google.com/store/apps/details?id=ir.basalam.app" class="me-2" target="_blank">
+                  <img src="image/main-content/app-download/google-play-black.b737c98.png"
+                    alt="دانلود اپ باسلام از گوگل پلی">
+                </a>
+                <a href="https://myket.ir/app/ir.basalam.app?utm_source=search-ads-gift&utm_medium=cpc" target="_blank">
+                  <img src="image/main-content/app-download/myket-black.aab250b.png" alt="دانلود اپ باسلام از مایکت">
+                </a>
+              </div>
+            </div>
+            <img src="image/barcode.png" alt="" class="qr-pic">
+          </div>
+          <p class="question">
+            می‌خواهید غرفه‌دار شوید؟
+            <a href="">اپلیکیشن «غرفه من» را دانلود کنید</a>
+          </p>
+
+        </div>
+        <div class="col-12 col-md-12 col-xl-6" style="padding-right: 125px;">
+          <img src="image/mobile-content.png" alt="اپلیکیشن باسلام" class="mobile-pic">
+        </div>
+      </div>
+      <div class="container py-2 p-md-0">
+        <div class="row app-section">
+          <img src="image/main-content/main-part2/big-logo-basalam.png" alt="image" class="app-section-pic">
+          <p class="app-section-title">
+            <span>اپلیکیشن باسلام</span>
+          </p>
+          <p class="app-section-discription">
+            <span>برخی از امکانات اپلیکیشن باسلام</span>
+          </p>
+          <div class="d-flex align-items-center app-features">
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-features/direct-discuss.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> گفت‌و‌گوی مستقیم با تولیدکننده و خرید بی‌واسطه </div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-features/discount.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5">محصولات متنوع همراه با تخفیف‌های خوب</div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-features/comments.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> خواندن نظرات و استفاده از تجربه‌های دیگران </div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-features/comparison.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> مقایسه راحت در میان محصولات مشابه </div>
+            </div>
+          </div>
+        </div>
+        <hr class="d-none d-md-block">
+        <div id="basalam-app-download" class="d-lg-none">
+          <div class="mobile-download-card">
+            <h2 class="fw-bold fs-5">دانلود وب اپلیکیشن باسلام</h2>
+            <h6 class="fs-9">وب اپلیکیشن باسلام را به صفحه اصلی موبایل خود اضافه کنید.</h6>
+            <div class="mt-3 mb-2">
+              <button class="bs-button bs-btn--xl bs-btn--fill bs-btn-primary w-100">
+                دریافت وب اپلیکیشن باسلام
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row app-section-2">
+          <img src="image/main-content/main-part2/big-logo-basalam-2-blue.png" class="app-section-vendor-pic"
+            alt="image">
+          <p class="app-section-vendor-title">
+            <span>اپلیکیشن غرفه من</span>
+          </p>
+          <p class="app-section-discription">
+            <span>برخی از امکانات مدیریت غرفه</span>
+          </p>
+          <div class="d-flex align-items-center app-features">
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-feature-vonder/coaprate.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5">گفت‌وگو با مشتری‌ها و مدیریت آسان سفارش‌ها</div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-feature-vonder/statistics.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> آمار بازدید، فروش و گزارش دقیق مالی </div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-feature-vonder/managment.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> مدیریت موجودی کالا و سفارش‌ها </div>
+            </div>
+            <div class="d-flex align-items-center item-features">
+              <div>
+                <img src="image/main-content/main-part2/app-feature-vonder/discount.png" alt="image">
+              </div>
+              <div class="ms-3 fs-5"> ایجاد کوپن تخفیف و ده‌ها امکان دیگر </div>
+            </div>
+
+          </div>
+
+          </diw>
+        </div>
+        <div id="vendor-app-download" class="d-lg-none">
+          <div class="mobile-download-card">
+            <h2 class="fw-bold fs-5">دانلود وب اپلیکیشن غرفه من</h2>
+            <h6 class="fs-9">وب اپلیکیشن غرفه من را به صفحه اصلی موبایل خود اضافه کنید.</h6>
+            <div class="mt-3 mb-2">
+              <button class="bs-button bs-btn--xl bs-btn--fill w-100" style="background-color: #0050b5;">
+
+                دریافت وب اپلیکیشن غرفه من
+
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row vendor-app-input mt-5 mt-lg-0">
+          <div class="client-input">
+            <input type="text" class="input-number" id="input-number-2" tabindex="-2" style="max-width: 280px;"
+              placeholder="شماره موبایل خود را وارد کنید">
+            <button type="submit" id="btn-mobile-2" class="button-input btn-xl btn-input-fill">
+              <span>ارسال لینک دانلود</span>
+            </button>
+
+          </div>
+
+        </div>
+        <div class="row  mt-5">
+          <div class="d-flex flex-wrap justify-content-center">
+            <a href="https://cafebazaar.ir/app/ir.basalam.basalam" class="me-2" target="_blank">
+              <img src="image/main-content/app-download/cafe-bazar-black.755828a.png"
+                alt="دانلود اپ باسلام از کافه بازار">
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=ir.basalam.basalam" class="me-2" target="_blank">
+              <img src="image/main-content/app-download/google-play-black.b737c98.png"
+                alt="دانلود اپ باسلام از گوگل پلی">
+            </a>
+            <a href="https://myket.ir/app/ir.basalam.basalam" target="_blank">
+              <img src="image/main-content/app-download/myket-black.aab250b.png" alt="دانلود اپ باسلام از مایکت">
+            </a>
+          </div>
+        </div>
+
+
+      </div>
+  </main>
+  <div class="container-fluid ps-0 pe-0">
+    <div class="mega-menu-footer bg-white d-lg-none">
+      <div class="fixed-btn">
+        <a href="#basalam-app-download" class="bs-button bs-md-btn bs-btn-primary btn-input-fill w-100">
+          <span></span>
+          نصب باسلام
+        </a>
+      </div>
+      <div class="fixed-btn">
+        <a href="#vendor-app-download" class="bs-button bs-md-btn bs-btn-blue btn-input-fill w-100">
+          <span></span>
+          نصب غرفه‌من
+        </a>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="bg-white pb-lg-6">
+      <div class="container">
+        <div class="d-lg-flex justify-content-between align-items-center">
+          <div class="row py-4 col-lg-7">
+            <div class="col-6 col-md-3 text-center text-body main-icons-item">
+              <div class="item-picture">
+                <img src="image/footericon/icon1/icon-dargah.svg" alt="">
+              </div>
+              <span class="item-title">پرداخت امن از درگاه بانکی</span>
+            </div>
+            <div class="col-6 col-md-3 text-center text-body main-icons-item">
+              <div class="item-picture">
+                <img src="image/footericon/icon1/icon-wallet.svg" alt="">
+              </div>
+              <span class="item-title">۷ روز ضمانت بازگشت پول</span>
+
+            </div>
+            <div class="col-6 col-md-3 text-center text-body main-icons-item">
+              <div class="item-picture">
+                <img src="image/footericon/icon1/icon-conection.svg" alt="">
+              </div>
+              <span class="item-title">ارتباط مستقیم با آدم‌ها</span>
+            </div>
+            <div class="col-6 col-md-3 text-center text-body main-icons-item">
+              <div class="item-picture">
+                <img src="image/footericon/icon1/icon-poshtibani.svg" alt="">
+              </div>
+              <span class="item-title">پشتیبانی آنلاین و تلفنی</span>
+            </div>
+
+          </div>
+          <div class="col-lg-4 footer-download-app">
+            <a href="https://basalam.com/dl-app" class="footer-items m-0 text-decoration-none"
+              style="font-size: 1.375rem; font-weight: 700;">نصب اپلیکیشن با‌سلام</a>
+            <div class="d-flex mt-4">
+              <a href="https://cafebazaar.ir/app/ir.basalam.app">
+                <img src="image/footericon/cafe-bazar-black.755828a.png" alt="دانلود اپ باسلام از کافه بازار"
+                  width="140" class="w-100">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=ir.basalam.app" class="mx-3 mx-md-4">
+                <img src="image/footericon/google-play-black.b737c98.png" alt="دانلود اپ باسلام از گوگل پلی" width="140"
+                  class="w-100">
+              </a>
+              <a href="https://myket.ir/app/ir.basalam.app?utm_source=search-ads-gift&amp;utm_medium=cpc">
+                <img src="image/footericon/myket-black.aab250b.png" alt="دانلود اپ باسلام از مایکت" width="140"
+                  class="w-100">
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="d-none d-lg-block ">
+        <div class="d-block d-lg-none mt-4">
+          <div class="bs-collapse__header bs-collapse--closed" id="collapse-1" onclick="collapse(id)"
+            data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false"
+            aria-controls="collapseExample1">
+            <div>پشتیبانی</div>
+            <i class="bi bi-chevron-left bs-collapse-icon"></i>
+          </div>
+          <div class="collapse" id="collapseExample1">
+            <div class="bs-collapse--content">
+              <div>
+                <a href="/about/contact-us" class="footer-items">
+                  تماس با ما
+                </a>
+              </div>
+              <div>
+                <a href="/account/orders" class="footer-items">
+                  پیگیری سفارش‌ها
+                </a>
+              </div>
+              <div>
+                <a to="https://help.basalam.com/" href="https://help.basalam.com/" class="footer-items">
+                  پاسخ به سوالات همیشگی
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class=" m-0 md-5">
+          <div class="bs-collapse__header bs-collapse--closed" id="collapse-2" onclick="collapse(id)"
+            data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false"
+            aria-controls="collapseExample2">
+            <div>باسلام</div>
+            <i class="bi bi-chevron-left bs-collapse-icon"></i>
+          </div>
+          <div class="collapse" id="collapseExample2">
+            <div class="bs-collapse--content">
+              <div>
+                <a href="/about/about-us" class="footer-items">
+                  داستان باسلام
+                </a>
+              </div>
+
+              <div>
+                <a to="https://jobs.basalam.com/" href="https://jobs.basalam.com/" class="footer-items">
+                  فرصت‌های شغلی
+                </a>
+              </div>
+              <div>
+                <a to="/guides/how-it-works" href="/guides/how-it-works" class="footer-items">
+                  باسلام چطور کار می‌کند؟
+                </a>
+              </div>
+              <div>
+                <a to="/about/terms-of-use" href="/about/terms-of-use" class="footer-items">
+                  قوانین و شرایط بازار
+                </a>
+              </div>
+            </div>
+
+          </div>
+          <hr class=" m-0 md-5">
+          <div class="bs-collapse__header bs-collapse--closed" id="collapse-3" onclick="collapse(id)"
+            data-bs-toggle="collapse" data-bs-target="#collapseExample3" aria-expanded="false"
+            aria-controls="collapseExample3">
+            <div>خرید و فروش</div>
+            <i class="bi bi-chevron-left bs-collapse-icon"></i>
+          </div>
+          <div class="collapse" id="collapseExample3">
+            <div class="bs-collapse--content">
+              <div>
+                <a to="/landing/create-vendor" href="/landing/create-vendor" class="footer-items">
+                  فروش در باسلام
+                </a>
+              </div>
+              <div>
+                <a href="/account/credit" class="footer-items">
+                  کیف پول من
+                </a>
+              </div>
+              <div>
+                <a to="https://vendor.basalam.com" href="https://vendor.basalam.com" class="footer-items">
+                  مدیریت غرفه
+                </a>
+              </div>
+            </div>
+          </div>
+          <hr class=" m-0 md-5">
+        </div>
+      </div>
+      <div class="container">
+        <hr class="d-none d-md-none">
+        <div class="d-lg-flex pt-4">
+          <div class="col-7 d-none d-lg-block p-0">
+            <div class="row">
+              <div class="col-3 text-center">
+                <img src="image/footericon/image.footer2/basalam.image.1.svg" alt=" basalam-logotype">
+              </div>
+              <div class="col-3 d-flex flex-column">
+                <div class="fs-6 fw-bold pb-4">پشتیبانی</div>
+                <div>
+                  <a class="footer-items" href="tell://025-31075" to="tell://025-31075">
+                    <span>تلفن تماس:</span>
+                    <span class="d-inline-block">025-31075</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="https://help.basalam.com/" href="https://help.basalam.com/" class="footer-items">
+                    <span>پشتیبانی آنلاین</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="/account/orders" class="footer-items">
+                    <span>پیگیری سفارش‌ها</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="https://goftino.com/c/Ky1Wfg" href="https://goftino.com/c/Ky1Wfg" class="footer-items">
+                    <span>گزارش تخلف</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="https://help.basalam.com/" href="https://help.basalam.com/" class="footer-items">
+                    <span>پاسخ به سوالات همیشگی</span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-3 d-flex flex-column">
+                <div class="fs-6 fw-bold pb-4">با‌سلام</div>
+                <div>
+                  <a href="/about/about-us" class="footer-items">
+                    <span>داستان با‌سلام</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="/about/contact-us" class="footer-items">
+                    <span>تماس با ما</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="https://jobs.basalam.com/" href="https://jobs.basalam.com/" class="footer-items">
+                    <span>فرصت‌های شغلی</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="/guides/how-it-works" href="/guides/how-it-works" class="footer-items">
+                    <span>با سلام چطور کار می‌کند؟</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="/about/terms-of-use" href="/about/terms-of-use" class="footer-items">
+                    <span>قوانین و شرایط بازار</span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-3 d-flex flex-column">
+                <div class="fs-6 fw-bold pb-4">خرید و فروش</div>
+                <div>
+                  <a to="/landing/create-vendor" href="/landing/create-vendor" class="footer-items">
+                    <span>فروش در باسلام</span>
+                  </a>
+                </div>
+                <div>
+                  <a href="/account/credit" class="footer-items">
+                    <span>کیف پول من</span>
+                  </a>
+                </div>
+                <div>
+                  <a to="https://vendor.basalam.com" href="https://vendor.basalam.com" class="footer-items">
+                    <span>مدیریت غرفه</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mt-2 ms-auto p-0">
+            <div class="fw-bold mb-2">ایمیل‌تان را وارد کنید تا از تخفیف‌ها باخبر شوید.</div>
+            <div class="p-0 m-0 d-block container align-items-center justify-content-between">
+              <div class="input-box">
+                <div data-type="email" id="div-input" class="p-0 w-100">
+                  <div class="bs-input-container">
+                    <input class=" email-input" type="email" placeholder="ایمیل" id="input-email" tabindex="-1">
+                  </div>
+                </div>
+                <button id="email-button" type="button" class="mx-2 bs-button bs-btn--xl bs-btn--fill bs-btn-primary">
+                  ارسال
+                </button>
+              </div>
+            </div>
+            <div class="footer-social-icon">
+              <span>ما را در شبکه‌های اجتماعی دنبال کنید.</span>
+              <div class="d-flex text-center">
+                <div>
+                  <a href="https://twitter.com/basalam_bazaar" target="_blank" rel="noopener noreferrer nofollow"
+                    aria-label="توییتر">
+                    <i class="bi bi-twitter" style="font-size: 1.5rem;"></i>
+                  </a>
+                </div>
+                <div class="mx-2">
+                  <a href="https://www.instagram.com/basalam_bazaar" rel="noopener noreferrer nofollow" target="_blank"
+                    aria-label="اینستاگرام">
+                    <i class="bi bi-instagram" style="font-size: 1.5rem;"></i>
+                  </a>
+                </div>
+                <div>
+                  <a href="https://www.linkedin.com/company/basalam" rel="noopener noreferrer nofollow" target="_blank"
+                    aria-label="لینکدین">
+                    <i class="bi bi-linkedin" style="font-size: 1.5rem;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="bg-white pt-3 ">
+      <div class="container pb-5">
+        <hr class="d-none d-lg-block mt-0">
+        <div class="row position-relative">
+          <div class="col-12 col-sm-6 order-2 order-sm-1 ">
+            <div class="footer-seo">
+              <h1 class="footer-seo-title">باسلام، بازار بی‌مرز</h1>
+              <div class="footer-seo-container position-relative">
+                <div class="text-session">
+                  <p class="text-session-header">
+
+                    یک بازار برای خرید و فروش محصولات مختلف با کیفیت و قیمت‌های متفاوته. باسلام
+                    مجموعه‌ای از بازارهای بزرگ همه‌ی شهرهاست اما اینترنتی. بازار تجریش و بازار
+                    بزرگ سیستان در باسلام کنار هم چیده شده. این‌جا با فروشندها و خریدارهای واقعی
+                    سروکار داری؛ نه انبارهای درندشت و بزرگ، چون باسلام بازار آدم‌هاست. هر محصولی
+                    که دنبالش بگردی توی این بازار هم عمده هم تکی در انواع مختلف و از شهرهای مختلف
+                    پیدا می‌شه. تو باسلام راه ارتباط با همه آدم‌ها مثل هر بازار دیگه بازه. تو این
+                    بازار از غرفه‌دارها خرید می‌کنی. این غرفه‌دارها از هر جایی از ایران حتی از هر
+                    جایی از جهان دارن محصولشون رو به شما می‌رسونن. امتیاز هر محصول و تجربه‌ای که
+                    مشتری‌های دیگه پای هر محصول ثبت کردن و یا گفت‌وگو با خود غرفه‌دارها و یا مشورت
+                    با خریدارهای قبلی بهت کمک می‌کنه که بتونی محصول بهتری رو انتخاب کنی.
+
+                    <br>
+
+                    فروش در باسلام هم سخت نیست. کافیه غرفه‌ات رو ثبت کنی و محصولت رو درون غرفه‌ات
+                    بچینی تا مشتری‌ها پیدات کنن و بی‌مرز ازت خرید کنن.
+
+                  </p>
+                </div>
+                <div class="show-more-text d-none" id="box-more-text">
+                  <h2>تو این بازار دنبال هر چی بگردی پیدا می‌شه</h2>
+                  <p>
+                    چه وقتی که دنبال<b> مواد غذایی مثل</b> برنج، <b>خوار و بار، سویا، حبوبات، قند و شکر،
+                      ماکارونی و
+                      پاستا</b>
+                    می‌گردی یا دنبال <b>ترشی و شور</b> و <b>زیتون</b> برای رنگین کردن سفره می‌گردی یا دنبال <b>
+                      ارده و
+                      شیره و مربا
+                    </b> برای
+                    <b>صبحانه</b> یا از <b>عسل و فراورده‌های عسل</b> مثل <b>بره موم</b> و <b>گرده گل</b> می‌گردی
+                    از
+                    بازار باسلام دست خالی
+                    برنمی‌گردی.
+                  </p>
+                  <br>
+                  <p>
+                    وقتی هم دنبال لباس برای اعضای خونه‌ای، باسلام یه عالمه محصول برای انتخاب داره. هم
+                    <b>زنانه</b> و
+                    هم
+                    <b>مردانه</b> از <b>
+                      شال و روسری زنانه تا کت و شلوار و جلیقه مردانه، هم دخترانه و پسرانه از بلوز، پیراهن و
+                      سارافون دخترانه تا شلوار، شلوارک و سرهمی
+                    </b> پسرانه حتی برای تازه به دنیا اومده‌ها<b>
+                      لباس زیر نوزاد و
+                      وسایل مراقبت کودک و نوزاد
+                    </b> پیدا می‌شه.
+                  </p>
+                  <br>
+                  <p>باسلام یه بازار بی‌مرزه پس عجیب نیست که اینجا <b>لوازم و لباس ورزشی</b> هم پیدا می‌شه. هم
+                    برای
+                    اونی که
+                    اهل صبحانه جمعه روی کوه هستن تجهیزات پخت و پز مسافرتی و تجهیزات کمپینگ و کوهنوردی داره هم
+                    برای
+                    اونایی که حوصله‌ آشپزی ندارن غذای <b>آماده و نیمه آماده</b> داره.</p>
+                  <br>
+                  <p><b>
+
+                      تو باسلامه که هم برای بچه‌ی بهونه گیر آجیل و میوه خشک و کلوچه و ترشک و تنقلات
+                    </b> پیدا می‌شه هم برای
+                    راننده‌ها <b>از لوازم جانبی خودرو و لوازم یدکی خودرو یا لوازم یدکی موتور سیکلت</b> اونی که
+                    دنبالش
+                    می‌گردن
+                    <b>پیدا می‌شه.</b>
+                  </p>
+
+                  <h2>از لوازم آرایشی تا صنایع دستی تو این بازار پیدا می‌شه</h2>
+                  <p>دسته آرایشی و بهداشتی باسلام خودش اندازه سه تا بازار محصول برات داره. از <b>
+                      لوازم آرایش صورت مثل
+                      پرایمر و کانتور
+                    </b> و <b>آرایش و مراقبت لب و رژ لب جامد و مایع و پنکک</b> و <b>آرایش چشم و ابرو</b> تا <b>
+                      عطر و ادکلن
+                      بگیر تا تا لاک ناخن ابزار مانیکور و پدیکور
+                    </b> و <b>آرایش و مراقبت ناخن</b> و تا هر چیزی که برای رسیدگی به
+                    موهات و آرایش مو دنبالش می‌گردی از <b>رنگ مو</b> و <b>سرم و اسپری مو</b> تو این بازار از
+                    برندهای
+                    مختلف پیدا
+                    می‌شه حتی مدل‌های گیاهی و دست‌سازش. <b>لوازم بهداشتی</b> از <b>اسپری مام و خمیر دندان</b> تا
+                    <b>ماشین اصلاح</b> یا
+                    <b>سشوار</b> و <b>لوازم شخصی برقی</b> هم جای خودش رو تو باسلام داره.
+                  </p>
+                  <br>
+
+                  <p>گه غذات بی‌مزه می‌شه بازار <b>ادویه و چاشنی</b> هم تو باسلام به راهه. از <b>زرشک و
+                      زعفران</b> تا
+                    <b>
+                      آبغوره و
+                      آبلیمو و رب‌ها
+                    </b> . اگه دنبال <b>لبنیات مثل پنیر و کشک و قره قوروت</b> یا محصولات <b>
+                      پروتئینی تخم مرغ و سوسیس و
+                      کالباس
+                    </b> می‌گردی یا <b>نوشیدنی‌</b> هات تکراری شده همه رقمه <b>چای، دمنوش، قهوه و نوشابه و ماء
+                      الشعیر</b> هم تو
+                    این بازار پیدا می‌شه.
+                  </p>
+                  <br>
+
+                  <p>یه چیزهایی مثل <b>
+                      ابزار کار هنری و دستی یا سفال، کاشی و سرامیک یا صنایع و ظروف فلزی مثل ظروف مسی و
+                      مینا کاری
+                    </b> که هنرمندهاش با زحمت زیادی و با دست می‌سازت یا <b>صنایع دستی سنگی </b>از این حکاکی و
+                    <b>
+                      نقاشی روی
+                      سنگ‌ها
+                    </b> یا ه<b>نرهای تجسمی مثل تذهیب و نگارگری</b> و <b>خوشنویسی یا حتی کیف و کفش چرم دست دوز و
+                      طبیعی</b> از خود
+                    هنرمندش خریده شه خیلی باحال‌تره. حالا اینکه کی و کجا آدم یه هنرمند پیدا کنه که بخواد ازش کار
+                    دستش
+                    رو بخره تا وقتی یه بازار اینترنتی باسلام هست کار سختی نیست. اینم بگیم که <b>کادویی و
+                      هدیه</b> هم
+                    تو این
+                    بازار فراوونه.
+                  </p>
+                  <h2>از همه‌ جای ایران می‌تونی خرید کنی</h2>
+                  <p>برای اینکه سوغات هر شهر رو پیدا کنی فقط کافیه تو باسلام بگردی. اگه هوس کشک و قره قوروت
+                    عشایر رو
+                    کردی یا فرش دستباف کاشانی، اگه دنبال مینا کاری اصفهان هستی یا سوهان قم تو باسلام دنبالشون
+                    بگرد.
+                  </p>
+                  <br>
+
+                  <p>اگه دنبال <b>
+                      لوازم آشپزخانه از ابزار قنادی، پارچ، لیوان، بطری، دستمال کاغذی، شیشه و آبگینه گرفته تا
+                      لوازم برقی مثل آبمیوه گیری، جاروبرقی، جاروشارژی و بخارشوی می‌گردی
+                    </b> و می‌خوای از بین هزار تا مدل
+                    اونی که دنبالشی رو پیدا کنی و مقایسه کنی تو باسلام دنبالش بگرد تنوع غرفه‌ها و محصولات از
+                    بازار
+                    بزرگ تهران و بانه تا بازار جنوبه.
+                  </p>
+                  <br>
+
+                  <p>راسته بزازی باسلام خودش به تنهایی یه بازاره. از <b>
+                      صنایع دستی پارچه‌ای مثل ترمه و تریکو بافی و
+                      مکرومه بافی گرفته تا بالش و کوسن
+                    </b> یا <b>ملحفه و روبالشی</b> و <b>کالای خواب</b> پیدا می‌شه ا گه هم دنبال پ<b>
+                      رده و
+                      پارچه‌ای
+                    </b> که به <b>خونه و مبلمان</b>، میز و <b>صندلی‌هات</b> بیاد می‌گردی اینجا می‌تونی دنبالش
+                    بگردی.
+                  </p>
+                  <h2>تنوع باسلام مرز نداره</h2>
+                  <p>بازار بی‌مرز باسلام از <b>ماساژور</b> برای روزهای که کوفتگی تو تنت مونده و هر جور ابزار
+                    سلامت و
+                    طب تا
+                    <b>تبر،</b> بیل و <b>کلنگ</b> و <b>گل و گیاه</b> و <b>لوازم باغبانی</b> برای اونایی که همیشه
+                    مشغول
+                    رسیدن به
+                    گیاهان آپارتمانی
+                    ‌شونن یا مشغول باغداری‌ هستن یا حتی دنبال لوازم زنبورداری می‌گردن محصول مناسبشون رو داره.
+                  </p>
+                  <br>
+
+                  <p>تو این بازار بی‌مرز برای اون‌هایی که دنیای موسیقی رو دوست دارن ابزار موسیقی مثل سازهای بادی
+                    و
+                    سازهای کوبه‌ای پیدا‌ می‌شه برای دانش‌آموزهایی هم که همه‌ی فکر و ذکرشون درس و مشقشونه تو این
+                    بازار
+                    تخته سیاه و وایت برد یا دفتر و کلاسور و بازی آموزشی و سرگرمی همه رقم لوازم التحریر تو مدل‌ها
+                    و
+                    رنگ‌های مختلف تا کتاب و مجلات، رمان و داستان، کتاب‌های بازاریابی و کتاب کمک درسی پیدا می‌شه.
+                  </p>
+                  <br>
+
+                  <p>از لوازم حمام و دستشویی و ابزار و مواد شوینده تا غذای پرندگان غذای سگ و غذای گربه و هر چیزی
+                    که
+                    ممکنه تو پت شاپ دنبالش بگردی هم این بازار برات محصول داره .
+                  </p>
+                  <br>
+
+                  <p>برای گیمرها هم کنسول بازی و تجهیزات جانبی و نرم افزار و بازی کامیپوتری پیدا می‌شه برای اون
+                    هایی
+                    هم که گیمر نیستن ولی بازی کردن رو دوست دارن بازی فکری و ربات و گجت و اسباب بازی برای نوزاد
+                    تا 190
+                    ساله‌ها تو این بازار هست .
+                  </p>
+                  <br>
+
+                  <p>این بازار از دزدگیر اماکن و قفل و دوربین مداربسته و گاوصندوق و محصولات حفاظتی و امنیتی هم
+                    کم
+                    نداره حتی تجهیزات ایمنی و کار و لباس کار هم اینجا پیدا می‌شه.
+                  </p>
+                  <br>
+
+                  <p>برای اون ‌دسته از آدمهایی هم که همه‌اش مشغول تعمیر کردن وسایل خونه و ساخت و ساز هستن هم
+                    ابزار
+                    برقی از اتو لوله تا دریل و مته هم ابزار غیر برقی از آچار تا سوهان، سنباده و سنبه هم لوازم و
+                    یراق
+                    آلات ساختمانی مثل پوستر و کاغذ دیواری و پوشش کف و سقف و تاسیسات و هر چی دنبالش بگردی موجود
+                    داریم.
+                  </p>
+                  <br>
+
+
+                </div>
+                <div class="show-more">
+                  <span id="change" class="more">نمایش بیشتر</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 order-1 order-sm-2 d-flex justify-content-center align-items-lg-start">
+            <div class="footer-named d-flex my-2 align-items-center justify-content-between">
+              <div>
+                <div class="d-flex justify-content-center">
+                  <img class="w-100" src="image/footericon/permissions/image-permission-1.svg"
+                    alt="انجمن کسب و کار های اینترنتی" title="انجمن کسب و کار های اینترنتی">
+                </div>
+              </div>
+              <div class="mx-4">
+                <div class="d-flex justify-content-center">
+                  <img class="w-100" src="image/footericon/permissions/image-permission-2.png"
+                    alt="ستاد ساماندهی پایگاه‌های اینترنتی" title="ستاد ساماندهی پایگاه‌های اینترنتی" width="92"
+                    height="92">
+                </div>
+              </div>
+              <div>
+                <div class="d-flex justify-content-center">
+                  <a href="http://www.qomstp.ir/" rel="noopener noreferrer nofollow" target="_blank">
+                    <img class="w-100" src="image/footericon/permissions/image-permission-3.png"
+                      alt="پارک علم و فناوری قم" title="پارک علم و فناوری قم">
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="bg-dark text-white pt-3 mb-5 mb-lg-0 pb-5 pb-lg-3">
+      <div class="container fs-6">
+        همه‌ حقوق برای بازار «باسلام» است. © 1401
+      </div>
+    </div>
+  </footer>
+  <script src="javascript-login.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+</body>
+</html>
